@@ -4,6 +4,8 @@
 
 ## Instalacion
 
+Descarga el repositorio y en el directorio del proyecto corre
+
 **pip install -r requirements.txt** en Windows 
 
 **pip3 install -r requirements.txt** en Linux o Mac
