@@ -8,7 +8,7 @@ Descarga el repositorio y en el directorio del proyecto corre
 
 **pip install -r requirements.txt** en Windows 
 
-**pip3 install -r requirements.txt** en Linux o Mac
+**pip3 install -r requirements.txt** en Linux
 
 Luego corremos el servidor con **flask run** y abrimos el sitio en **localhost:5000**
 
