@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <!-- END Google Fonts-->
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    
+    <!-- END Bootstrap -->
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>ComicBook: Details</title>
+</head>
+<header>
+    <nav class="navbar navbar-light bg-light justify-content-center d">
+        <a class="latest-issues" href="{{url_for('index')}}">Latest issues</a>
+        <span class="navbar-brand mb-0 h1 t">ComicBook</span>
+    </nav>
+</header>
+<main>
+    <body class="bg-light">
+        <div class="flex-container">
+            <div class="left">
+                <!-- Issue INFO -->
+                {% for i in req %}
+                <!-- title -->
+                    <h4 class="title">{{i[0]}}</h4>
+                <!-- data -->
+                    <div class="{{i[0]}}">
+                        <ul>
+                            {% if not data[i[1]] %}
+                                <h6>{{i[0]}} not available</h6>
+                            {% else %}
+                                {% for j in data[i[1]] %}
+                                    <li class="{{i[1]}}">{{j['name']}}</li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </div>
+                <!-- data -->
+                {% endfor %}
+            </div>
+    
+            <div class="detail-poster">
+                <!-- Poster -->
+                <img src="{{data['image']['super_url']}}" alt="{{data['name']}}" width="458" height="647">
+            </div>
+
+        </div>
+    </body>
+</main>
+
+</html>
